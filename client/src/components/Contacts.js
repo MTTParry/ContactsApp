@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Form from "./form";
+import Form from "./AddContactForm";
 
 function Contacts() {
   const [contacts, setContacts] = useState([]);
@@ -36,10 +36,11 @@ function Contacts() {
             Address: {contact.address}
             <br />
             {contact.city}, {contact.postalcode} {contact.country}
+            <hr></hr>
           </li>
         ))}
       </ul>
-      <Form addStudent={addContact} />
+      <Form addContact={addContact} />
     </div>
   );
 }

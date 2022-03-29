@@ -28,34 +28,27 @@ app.get("/api/contacts", cors(), async (req, res) => {
 
 //create the POST request
 app.post("/api/contacts", cors(), async (req, res) => {
-  const newContact = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    phone: req.body.phone,
-    email: req.body.email,
-    address: req.body.address,
-    city: req.body.city,
-    postalcode: req.body.postalcode,
-    country: req.body.country,
-    notes: req.body.notes,
-  };
-  console.log([newContact.firstname, newContact.lastname]);
-  const result = await db.query(
-    "INSERT INTO contacts(firstname, lastname, phone, email, address, city, postalcode, country, notes, creationtimestamp) VALUES($1, $2, $3, $4, $5, $6, $7, $8, #9, current_timestamp) RETURNING *",
-    [
-      newContact.firstname,
-      newContact.lastname,
-      newContact.phone,
-      newContact.email,
-      newContact.address,
-      newContact.city,
-      newContact.postalcode,
-      newContact.country,
-      newContact.notes,
-    ]
-  );
-  console.log(result.rows[0]);
-  res.json(result.rows[0]);
+  console.log("Start server request");
+  try {
+    const newContact = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      phone: req.body.phone,
+      email: req.body.email,
+      address: req.body.address,
+      city: req.body.city,
+      postalcode: req.body.postalcode,
+      country: req.body.country,
+      notes: req.body.notes,
+    };
+    console.log([newContact]);
+    const queryString = `INSERT INTO contactlist ("firstname", "lastname", "phone", "email", "address", "city", "postalcode", "country", "notes", creationtimestamp) VALUES ('${newContact.firstname}', '${newContact.lastname}', '${newContact.phone}', '${newContact.email}', '${newContact.address}', '${newContact.city}', '${newContact.postalcode}', '${newContact.country}', '${newContact.notes}', current_timestamp) RETURNING *`;
+    const result = await db.query(queryString);
+    console.log("Post contact", result.rows[0]);
+    res.json(result.rows[0]);
+  } catch (e) {
+    console.log(e.message);
+  }
 });
 
 // console.log that your server is up and running

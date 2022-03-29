@@ -1,13 +1,66 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0px 0px 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f5e9c4;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+fieldset {
+  text-align: left;
+  padding: 5px 20px;
+  line-height: 200%;
+  align-self: center;
+  margin: 5px 40px;
+  background-color: #fdfef9;
+}
+
+input {
+  margin-left: 10px;
+}
+
+button {
+  background-color: #008cba;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-style: bold;
+}
+
+.topnav {
+  background-color: #008cba;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+li {
+  padding: 0% 10% 0% 10%;
+  list-style-type: none;
+  text-align: left;
+}
+
+.note {
+  font-style: italic;
+  font-size: small;
+  line-height: 100%;
+  color: #6e6e6e;
+}
+
+.dropdown {
+  background-color: #ffffff;
+  border: solid;
+  color: #008cba;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
 }

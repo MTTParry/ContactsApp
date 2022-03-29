@@ -15,6 +15,8 @@ const AddContactForm = (props) => {
 
   const [contact, setContact] = useState(emptyContact);
 
+  
+
   //create functions that handle the event of the user typing into the form
   const handleFirstName = (event) => {
     const firstname = event.target.value;
@@ -84,7 +86,7 @@ const AddContactForm = (props) => {
       .then((data) => {
         console.log("From the post ", data);
       });
-      return results;
+    return results;
   };
 
   const handleSubmit = (e) => {
@@ -112,7 +114,6 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-lastname"
           placeholder="Last Name"
-          required
           value={contact.lastname}
           onChange={handleLastName}
         />
@@ -122,7 +123,6 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-phone"
           placeholder="No spaces and no dashes"
-          required
           value={contact.phone}
           onChange={handlePhone}
         />
@@ -132,7 +132,6 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-email"
           placeholder="name@email.com"
-          required
           value={contact.email}
           onChange={handleEmail}
         />
@@ -142,7 +141,6 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-address"
           placeholder="123 Main St."
-          required
           value={contact.address}
           onChange={handleAddress}
         />
@@ -151,7 +149,6 @@ const AddContactForm = (props) => {
         <input
           type="text"
           id="add-contact-city"
-          required
           value={contact.city}
           onChange={handleCity}
         />
@@ -161,7 +158,6 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-postalcode"
           placeholder="ex: 90210"
-          required
           value={contact.postalcode}
           onChange={handlePostalCode}
         />
@@ -171,21 +167,19 @@ const AddContactForm = (props) => {
           type="text"
           id="add-contact-country"
           placeholder="ex: United States"
-          required
           value={contact.country}
           onChange={handleCountry}
         />
         <br />
-        <label>Notes:</label>
+        <label>Notes*:</label>
         <input
           type="text"
           id="add-contact-notes"
           placeholder="Any other notes about this person..."
-          required
           value={contact.notes}
           onChange={handleNotes}
         />
-        <br />
+        <div className="note">*Don't use apostrophes</div>
       </fieldset>
       <button type="submit">Add</button>
     </form>

@@ -51,6 +51,14 @@ app.post("/api/contacts", cors(), async (req, res) => {
   }
 });
 
+//Delete contacts by id
+app.delete("/api/contacts/:id", async (req, res) => {
+  const contactId = req.params.id;
+  console.log("Deleting contact id #", contactId);
+  await db.query("DELETE FROM contactlist WHERE id=($1)", [contactId]);
+  res.send({ status: "successful delete!" });
+});
+
 // console.log that your server is up and running
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
